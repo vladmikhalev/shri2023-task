@@ -6,7 +6,7 @@
           content="width=device-width, initial-scale=1.0">
     <title>Яндекс.Дом</title>
     <link rel="preload" as="font" href="assets/lato.woff2" type="font/woff2" crossorigin="anonymous">
-    <script defer src="vendors/react-with-dom.js"></script>
+    <script src="vendors/react-with-dom.js"></script>
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -81,7 +81,7 @@
             if (onSize) {
                 onSize({ width, height });
             }
-        }, [ref.current]);
+        });
 
         return <li ref={ref} className={'event' + (props.slim ? ' event_slim' : '')}>
             <button className="event__button">
@@ -217,7 +217,7 @@
                 initedRef.current = true;
                 setActiveTab(new URLSearchParams(location.search).get('tab') || 'all');
             }
-        }, [initedRef.current]);
+        });
 
         const onSelectInput = event => {
             setActiveTab(event.target.value);
@@ -236,7 +236,7 @@
             if (newHasRightScroll !== hasRightScroll) {
                 setHasRightScroll(newHasRightScroll);
             }
-        }, [sizes, ref.current]);
+        });
 
         const onArrowCLick = () => {
             const scroller = ref.current.querySelector('.section__panel:not(.section__panel_hidden)');
